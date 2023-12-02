@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Case Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Test Case Generator</h1>
+
+
+    <form action="/submit_form" method="post" class="form-container">
+        <div class="form-group">
+            <label for="name">Enter the type of application?</label><br>
+            <input type="text" id="application" name="application">
+        </div>
+    
+        <div class="form-group">
+            <label for="email">Email:</label><br>
+            <input type="text" id="format" name="format">
+        </div>
+    
+        <div class="form-group">
+            <label for="age">Any additional information</label><br>
+            <input type="text" id="info" name="info">
+        </div>
+    
+        <div class="form-group">
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+        
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+
+
