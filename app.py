@@ -1,4 +1,5 @@
 from flask import Flask, render_template,request
+import main
 
 app = Flask(__name__)
 
@@ -9,11 +10,14 @@ def home():
 
 @app.route('/submit_form', methods=['POST'])
 def submit_form():
-    name = request.form['application']
-    email = request.form['format']
-    age = request.form['info']
+    app = request.form['application']
+    format = request.form['format']
+    info = request.form['info']
     # Process the data
-    return 'Form Submitted'
+    return main.get_test_cases(app,format,info)
+
+
+
 
 
 if __name__ == '__main__':
