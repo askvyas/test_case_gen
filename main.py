@@ -3,6 +3,8 @@ import openai
 from dotenv import load_dotenv
 from fpdf import FPDF
 
+from datetime import datetime
+
 load_dotenv() 
 openai.api_key = os.getenv("OPENAI_API_KEY") 
 msgs = []
@@ -17,7 +19,7 @@ def get_test_cases(app,format,info):
     #generate pdf using fpdf
 
     pdf_file=convert_to_pdf(test_cases)
-
+    print("Test Cases generated successfully")
     return pdf_file
 
 
@@ -25,11 +27,16 @@ def get_test_cases(app,format,info):
     # return test_cases
 
 
-def convert_to_pdf(text,filename="testcases.pdf"):
+def convert_to_pdf(text,filename="testcases"):
     pdf=FPDF()
     pdf.add_page()  
     pdf.set_font("Arial", size = 12)  
     pdf.multi_cell(0, 10, text)
+
+
+    now = datetime.now()
+    date_Time = now.strftime('%Y-%m-%d')
+    filename=filename+"_"+date_Time+".pdf"
     pdf.output(filename)
     return filename
 
